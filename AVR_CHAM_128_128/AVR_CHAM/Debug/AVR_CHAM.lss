@@ -1,0 +1,473 @@
+
+AVR_CHAM.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000010  00800100  0000031c  0000041c  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         0000031c  00000000  00000000  00000100  2**8
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .comment      00000030  00000000  00000000  0000042c  2**0
+                  CONTENTS, READONLY
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  0000045c  2**2
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000040  00000000  00000000  00000498  2**3
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   000008d4  00000000  00000000  000004d8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 000007af  00000000  00000000  00000dac  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   00000516  00000000  00000000  0000155b  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000034  00000000  00000000  00001a74  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    000003ff  00000000  00000000  00001aa8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    0000003b  00000000  00000000  00001ea7  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000010  00000000  00000000  00001ee2  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	45 c0       	rjmp	.+138    	; 0x8c <__ctors_end>
+   2:	00 00       	nop
+   4:	58 c0       	rjmp	.+176    	; 0xb6 <__bad_interrupt>
+   6:	00 00       	nop
+   8:	56 c0       	rjmp	.+172    	; 0xb6 <__bad_interrupt>
+   a:	00 00       	nop
+   c:	54 c0       	rjmp	.+168    	; 0xb6 <__bad_interrupt>
+   e:	00 00       	nop
+  10:	52 c0       	rjmp	.+164    	; 0xb6 <__bad_interrupt>
+  12:	00 00       	nop
+  14:	50 c0       	rjmp	.+160    	; 0xb6 <__bad_interrupt>
+  16:	00 00       	nop
+  18:	4e c0       	rjmp	.+156    	; 0xb6 <__bad_interrupt>
+  1a:	00 00       	nop
+  1c:	4c c0       	rjmp	.+152    	; 0xb6 <__bad_interrupt>
+  1e:	00 00       	nop
+  20:	4a c0       	rjmp	.+148    	; 0xb6 <__bad_interrupt>
+  22:	00 00       	nop
+  24:	48 c0       	rjmp	.+144    	; 0xb6 <__bad_interrupt>
+  26:	00 00       	nop
+  28:	46 c0       	rjmp	.+140    	; 0xb6 <__bad_interrupt>
+  2a:	00 00       	nop
+  2c:	44 c0       	rjmp	.+136    	; 0xb6 <__bad_interrupt>
+  2e:	00 00       	nop
+  30:	42 c0       	rjmp	.+132    	; 0xb6 <__bad_interrupt>
+  32:	00 00       	nop
+  34:	40 c0       	rjmp	.+128    	; 0xb6 <__bad_interrupt>
+  36:	00 00       	nop
+  38:	3e c0       	rjmp	.+124    	; 0xb6 <__bad_interrupt>
+  3a:	00 00       	nop
+  3c:	3c c0       	rjmp	.+120    	; 0xb6 <__bad_interrupt>
+  3e:	00 00       	nop
+  40:	3a c0       	rjmp	.+116    	; 0xb6 <__bad_interrupt>
+  42:	00 00       	nop
+  44:	38 c0       	rjmp	.+112    	; 0xb6 <__bad_interrupt>
+  46:	00 00       	nop
+  48:	36 c0       	rjmp	.+108    	; 0xb6 <__bad_interrupt>
+  4a:	00 00       	nop
+  4c:	34 c0       	rjmp	.+104    	; 0xb6 <__bad_interrupt>
+  4e:	00 00       	nop
+  50:	32 c0       	rjmp	.+100    	; 0xb6 <__bad_interrupt>
+  52:	00 00       	nop
+  54:	30 c0       	rjmp	.+96     	; 0xb6 <__bad_interrupt>
+  56:	00 00       	nop
+  58:	2e c0       	rjmp	.+92     	; 0xb6 <__bad_interrupt>
+  5a:	00 00       	nop
+  5c:	2c c0       	rjmp	.+88     	; 0xb6 <__bad_interrupt>
+  5e:	00 00       	nop
+  60:	2a c0       	rjmp	.+84     	; 0xb6 <__bad_interrupt>
+  62:	00 00       	nop
+  64:	28 c0       	rjmp	.+80     	; 0xb6 <__bad_interrupt>
+  66:	00 00       	nop
+  68:	26 c0       	rjmp	.+76     	; 0xb6 <__bad_interrupt>
+  6a:	00 00       	nop
+  6c:	24 c0       	rjmp	.+72     	; 0xb6 <__bad_interrupt>
+  6e:	00 00       	nop
+  70:	22 c0       	rjmp	.+68     	; 0xb6 <__bad_interrupt>
+  72:	00 00       	nop
+  74:	20 c0       	rjmp	.+64     	; 0xb6 <__bad_interrupt>
+  76:	00 00       	nop
+  78:	1e c0       	rjmp	.+60     	; 0xb6 <__bad_interrupt>
+  7a:	00 00       	nop
+  7c:	1c c0       	rjmp	.+56     	; 0xb6 <__bad_interrupt>
+  7e:	00 00       	nop
+  80:	1a c0       	rjmp	.+52     	; 0xb6 <__bad_interrupt>
+  82:	00 00       	nop
+  84:	18 c0       	rjmp	.+48     	; 0xb6 <__bad_interrupt>
+  86:	00 00       	nop
+  88:	16 c0       	rjmp	.+44     	; 0xb6 <__bad_interrupt>
+	...
+
+0000008c <__ctors_end>:
+  8c:	11 24       	eor	r1, r1
+  8e:	1f be       	out	0x3f, r1	; 63
+  90:	cf ef       	ldi	r28, 0xFF	; 255
+  92:	d0 e1       	ldi	r29, 0x10	; 16
+  94:	de bf       	out	0x3e, r29	; 62
+  96:	cd bf       	out	0x3d, r28	; 61
+
+00000098 <__do_copy_data>:
+  98:	11 e0       	ldi	r17, 0x01	; 1
+  9a:	a0 e0       	ldi	r26, 0x00	; 0
+  9c:	b1 e0       	ldi	r27, 0x01	; 1
+  9e:	ec e1       	ldi	r30, 0x1C	; 28
+  a0:	f3 e0       	ldi	r31, 0x03	; 3
+  a2:	00 e0       	ldi	r16, 0x00	; 0
+  a4:	0b bf       	out	0x3b, r16	; 59
+  a6:	02 c0       	rjmp	.+4      	; 0xac <__do_copy_data+0x14>
+  a8:	07 90       	elpm	r0, Z+
+  aa:	0d 92       	st	X+, r0
+  ac:	a0 31       	cpi	r26, 0x10	; 16
+  ae:	b1 07       	cpc	r27, r17
+  b0:	d9 f7       	brne	.-10     	; 0xa8 <__do_copy_data+0x10>
+  b2:	26 d1       	rcall	.+588    	; 0x300 <main>
+  b4:	31 c1       	rjmp	.+610    	; 0x318 <_exit>
+
+000000b6 <__bad_interrupt>:
+  b6:	a4 cf       	rjmp	.-184    	; 0x0 <__vectors>
+	...
+
+00000100 <CHAM_EncryptBlk>:
+//60 LINES
+	//c : r24,r25
+	//b : r20,r21
+	//a : r23,r22
+	
+	PUSH R2
+ 100:	2f 92       	push	r2
+	PUSH R3
+ 102:	3f 92       	push	r3
+	PUSH R4
+ 104:	4f 92       	push	r4
+	PUSH R5
+ 106:	5f 92       	push	r5
+	PUSH R6
+ 108:	6f 92       	push	r6
+	PUSH R7
+ 10a:	7f 92       	push	r7
+	PUSH R8
+ 10c:	8f 92       	push	r8
+	PUSH R9
+ 10e:	9f 92       	push	r9
+	PUSH R10
+ 110:	af 92       	push	r10
+
+	PUSH R28
+ 112:	cf 93       	push	r28
+	PUSH R29
+ 114:	df 93       	push	r29
+
+	MOVW R26, R24	//plain 
+ 116:	dc 01       	movw	r26, r24
+	
+	LD X0, X+
+ 118:	0d 90       	ld	r0, X+
+	LD X1, X+
+ 11a:	1d 90       	ld	r1, X+
+	LD X2, X+
+ 11c:	2d 90       	ld	r2, X+
+	LD X3, X+
+ 11e:	3d 90       	ld	r3, X+
+	LD X4, X+
+ 120:	4d 90       	ld	r4, X+
+	LD X5, X+
+ 122:	5d 90       	ld	r5, X+
+	LD X6, X+
+ 124:	6d 90       	ld	r6, X+
+	LD X7, X+
+ 126:	7d 90       	ld	r7, X+
+
+	LD X8 , X+
+ 128:	8d 90       	ld	r8, X+
+	LD X9 , X+
+ 12a:	9d 90       	ld	r9, X+
+	LD X10, X+
+ 12c:	2d 91       	ld	r18, X+
+	LD X11, X+
+ 12e:	3d 91       	ld	r19, X+
+	LD X12, X+
+ 130:	4d 91       	ld	r20, X+
+	LD X13, X+
+ 132:	5d 91       	ld	r21, X+
+	LD X14, X+
+ 134:	6d 91       	ld	r22, X+
+	LD X15, X+
+ 136:	7d 91       	ld	r23, X+
+		
+	PUSH R26
+ 138:	af 93       	push	r26
+	PUSH R27
+ 13a:	bf 93       	push	r27
+
+	CLR C0
+ 13c:	88 27       	eor	r24, r24
+			//LDI R31, 0X08
+	LDI R31, hi8(LUT_1)
+ 13e:	f2 e0       	ldi	r31, 0x02	; 2
+	CLR R30
+ 140:	ee 27       	eor	r30, r30
+
+	CLR ZERO
+ 142:	aa 24       	eor	r10, r10
+
+00000144 <STEP1>:
+
+	STEP1:
+	//even (0) ROL1 / odd (1) ROL8
+	
+	MOVW X16, X4
+ 144:	d2 01       	movw	r26, r4
+	MOVW X18, X6
+ 146:	e3 01       	movw	r28, r6
+
+	LSL X4
+ 148:	44 0c       	add	r4, r4
+	ROL X5
+ 14a:	55 1c       	adc	r5, r5
+	ROL X6
+ 14c:	66 1c       	adc	r6, r6
+	ROL X7
+ 14e:	77 1c       	adc	r7, r7
+	ADC X4, ZERO
+ 150:	4a 1c       	adc	r4, r10
+
+	EOR X0, C0	
+ 152:	08 26       	eor	r0, r24
+	
+	ANDI R30, 31
+ 154:	ef 71       	andi	r30, 0x1F	; 31
+
+	LPM C1, Z+
+ 156:	95 91       	lpm	r25, Z+
+	EOR X4, C1
+ 158:	49 26       	eor	r4, r25
+
+	LPM C1, Z+
+ 15a:	95 91       	lpm	r25, Z+
+	EOR X5, C1
+ 15c:	59 26       	eor	r5, r25
+
+	LPM C1, Z+
+ 15e:	95 91       	lpm	r25, Z+
+	EOR X6, C1
+ 160:	69 26       	eor	r6, r25
+
+	LPM C1, Z+
+ 162:	95 91       	lpm	r25, Z+
+	EOR X7, C1
+ 164:	79 26       	eor	r7, r25
+
+	ADD X0, X4
+ 166:	04 0c       	add	r0, r4
+	ADC X1, X5
+ 168:	15 1c       	adc	r1, r5
+	ADC X2, X6
+ 16a:	26 1c       	adc	r2, r6
+	ADC X3, X7
+ 16c:	37 1c       	adc	r3, r7
+
+	INC C0
+ 16e:	83 95       	inc	r24
+
+	// 0 1 2 3 || 4 5 6 7 || 8 9 10 11 || 12 13 14 15
+	//16171819   08091011   
+	//
+	MOVW X4, X8
+ 170:	24 01       	movw	r4, r8
+	MOVW X6, X10
+ 172:	39 01       	movw	r6, r18
+
+	EOR X16, C0	
+ 174:	a8 27       	eor	r26, r24
+	//ANDI R30, 31
+
+	LPM C1, Z+
+ 176:	95 91       	lpm	r25, Z+
+	EOR X11, C1
+ 178:	39 27       	eor	r19, r25
+
+	LPM C1, Z+
+ 17a:	95 91       	lpm	r25, Z+
+	EOR X8, C1
+ 17c:	89 26       	eor	r8, r25
+
+	LPM C1, Z+
+ 17e:	95 91       	lpm	r25, Z+
+	EOR X9, C1
+ 180:	99 26       	eor	r9, r25
+
+	LPM C1, Z+
+ 182:	95 91       	lpm	r25, Z+
+	EOR X10, C1
+ 184:	29 27       	eor	r18, r25
+
+	ADD X16, X11
+ 186:	a3 0f       	add	r26, r19
+	ADC X17, X8
+ 188:	b8 1d       	adc	r27, r8
+	ADC X18, X9
+ 18a:	c9 1d       	adc	r28, r9
+	ADC X19, X10
+ 18c:	d2 1f       	adc	r29, r18
+
+	LSL X16
+ 18e:	aa 0f       	add	r26, r26
+	ROL X17
+ 190:	bb 1f       	adc	r27, r27
+	ROL X18
+ 192:	cc 1f       	adc	r28, r28
+	ROL X19
+ 194:	dd 1f       	adc	r29, r29
+	ADC X16, ZERO
+ 196:	aa 1d       	adc	r26, r10
+
+	MOV X8 , X3
+ 198:	83 2c       	mov	r8, r3
+	MOV X9 , X0
+ 19a:	90 2c       	mov	r9, r0
+	MOV X10, X1
+ 19c:	21 2d       	mov	r18, r1
+	MOV X11, X2
+ 19e:	32 2d       	mov	r19, r2
+
+	MOVW X0, X4
+ 1a0:	02 01       	movw	r0, r4
+	MOVW X2, X6
+ 1a2:	13 01       	movw	r2, r6
+
+	MOVW X4, X12
+ 1a4:	2a 01       	movw	r4, r20
+	MOVW X6, X14
+ 1a6:	3b 01       	movw	r6, r22
+	
+	MOVW X12, X16
+ 1a8:	ad 01       	movw	r20, r26
+	MOVW X14, X18
+ 1aa:	be 01       	movw	r22, r28
+	
+	INC C0
+ 1ac:	83 95       	inc	r24
+	
+	CPI C0, 80
+ 1ae:	80 35       	cpi	r24, 0x50	; 80
+	BRLT STEP1
+ 1b0:	4c f2       	brlt	.-110    	; 0x144 <STEP1>
+
+	POP R27
+ 1b2:	bf 91       	pop	r27
+	POP R26
+ 1b4:	af 91       	pop	r26
+	
+	ST -X, X15
+ 1b6:	7e 93       	st	-X, r23
+	ST -X, X14
+ 1b8:	6e 93       	st	-X, r22
+	ST -X, X13
+ 1ba:	5e 93       	st	-X, r21
+	ST -X, X12
+ 1bc:	4e 93       	st	-X, r20
+	ST -X, X11
+ 1be:	3e 93       	st	-X, r19
+	ST -X, X10
+ 1c0:	2e 93       	st	-X, r18
+	ST -X, X9
+ 1c2:	9e 92       	st	-X, r9
+	ST -X, X8
+ 1c4:	8e 92       	st	-X, r8
+	ST -X, X7
+ 1c6:	7e 92       	st	-X, r7
+	ST -X, X6
+ 1c8:	6e 92       	st	-X, r6
+	ST -X, X5
+ 1ca:	5e 92       	st	-X, r5
+	ST -X, X4
+ 1cc:	4e 92       	st	-X, r4
+	ST -X, X3
+ 1ce:	3e 92       	st	-X, r3
+	ST -X, X2
+ 1d0:	2e 92       	st	-X, r2
+	ST -X, X1
+ 1d2:	1e 92       	st	-X, r1
+	ST -X, X0
+ 1d4:	0e 92       	st	-X, r0
+
+	CLR R1
+ 1d6:	11 24       	eor	r1, r1
+	POP R29
+ 1d8:	df 91       	pop	r29
+	POP R28
+ 1da:	cf 91       	pop	r28
+	POP R10
+ 1dc:	af 90       	pop	r10
+	POP R9
+ 1de:	9f 90       	pop	r9
+	POP R8
+ 1e0:	8f 90       	pop	r8
+	POP R7
+ 1e2:	7f 90       	pop	r7
+	POP R6
+ 1e4:	6f 90       	pop	r6
+	POP R5
+ 1e6:	5f 90       	pop	r5
+	POP R4
+ 1e8:	4f 90       	pop	r4
+	POP R3
+ 1ea:	3f 90       	pop	r3
+	POP R2
+ 1ec:	2f 90       	pop	r2
+	/**/
+	RET
+ 1ee:	08 95       	ret
+	...
+
+00000200 <LUT_1>:
+ 200:	01 03       	mulsu	r16, r17
+ 202:	05 07       	cpc	r16, r21
+ 204:	09 0b       	sbc	r16, r25
+ 206:	0d 0f       	add	r16, r29
+ 208:	11 13       	cpse	r17, r17
+ 20a:	15 17       	cp	r17, r21
+ 20c:	19 1b       	sub	r17, r25
+ 20e:	1d 1f       	adc	r17, r29
+ 210:	1e 15       	cp	r17, r14
+ 212:	08 03       	fmul	r16, r16
+ 214:	32 39       	cpi	r19, 0x92	; 146
+ 216:	24 2f       	mov	r18, r20
+ 218:	46 4d       	sbci	r20, 0xD6	; 214
+ 21a:	50 5b       	subi	r21, 0xB0	; 176
+ 21c:	6a 61       	ori	r22, 0x1A	; 26
+ 21e:	7c 77       	andi	r23, 0x7C	; 124
+	...
+
+00000300 <main>:
+//const u16 RK2[16]= { 0x0301,0x0705,0x0b09,0x0f0d,0x1311,0x1715,0x1b19,0x1f1d,0x151e,0x0308,0x3932,0x2f24,0x4d46,0x5b50,0x616a,0x777c};
+//const u32 RK[8] __attribute__ ((section(".MySection")))= { 0x07070303,0x0f0f0b0b,0x17171313,0x1f1f1b1b,0x39222f34,0x150e0318,0x617a776c,0x4d565b40};
+u32 plaintext64[] = {0x33221100, 0x77665544, 0xbbaa9988, 0xffeeddcc};
+
+int main(void)
+{
+ 300:	cf 93       	push	r28
+ 302:	df 93       	push	r29
+ 304:	cd b7       	in	r28, 0x3d	; 61
+ 306:	de b7       	in	r29, 0x3e	; 62
+	//u16 A = pgm_read_byte_near(RK+1);
+	//u16 B = pgm_read_byte_near(RK2+2);
+   CHAM_EncryptBlk(plaintext64);
+ 308:	80 e0       	ldi	r24, 0x00	; 0
+ 30a:	91 e0       	ldi	r25, 0x01	; 1
+ 30c:	f9 de       	rcall	.-526    	; 0x100 <CHAM_EncryptBlk>
+ 30e:	80 e0       	ldi	r24, 0x00	; 0
+ 310:	90 e0       	ldi	r25, 0x00	; 0
+ 312:	df 91       	pop	r29
+ 314:	cf 91       	pop	r28
+ 316:	08 95       	ret
+
+00000318 <_exit>:
+ 318:	f8 94       	cli
+
+0000031a <__stop_program>:
+ 31a:	ff cf       	rjmp	.-2      	; 0x31a <__stop_program>

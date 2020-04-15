@@ -1,0 +1,367 @@
+﻿	.global CHAM_EncryptBlk
+	.type CHAM_EncryptBlk, @function
+  
+	; operand b: r21:r20
+	; operand a: r23:r22
+	; operand r: r25:r24
+//14: Plaintext (8)
+
+#define X4 R0 //R0
+#define X5 R1 //R1
+
+#define ZERO R2 //R2
+
+#define X6 R18 //R18
+#define X7 R19 //R19
+
+#define X0 R20 //R20
+#define X1 R21 //R21
+#define X2 R22 //R22
+#define X3 R23 //R23
+
+#define C0 R24 //R24
+#define C1 R25 //R25
+
+#define X8 R26 //R26
+#define X9 R27 //R27
+
+	CHAM_EncryptBlk:
+//key 32 bytes
+// 80 LINE…
+//60 LINES
+	//c : r24,r25
+	//b : r20,r21
+	//a : r23,r22
+	/*
+
+		
+	MOVW R26, R24	//plain 
+	
+	LD X0, X+
+	LD X1, X+
+	LD X2, X+
+	LD X3, X+
+	LD X4, X+
+	LD X5, X+
+	LD X6, X+
+	LD X7, X+
+	
+	PUSH ZERO
+	PUSH R26
+	PUSH R27
+	
+	CLR C0
+	CLR ZERO
+	LDI R31, 0X08
+	CLR R30
+	STEP1:
+	MOVW X8, X2
+
+	LSL X2
+	ROL X3
+	ADC X2, ZERO
+
+	EOR X0, C0	
+	ANDI R30, 32
+
+	LPM C1, Z+
+	EOR X2, C1
+
+	LPM C1, Z+
+	EOR X3, C1
+
+	ADD X0, X2
+	ADC X1, X3
+
+	////////////////////////////
+	// REAL	   : 0 1 2 3 4 5 6 7 
+	// REGISTER: 8 9 4 5 6 7 1 0
+
+	EOR X8, C0	
+	ANDI R30, 32
+
+	LPM C1, Z+
+	EOR X5, C1
+
+	LPM C1, Z+
+	EOR X4, C1
+
+	ADD X8, X5
+	ADC X9, X4
+
+	LSL X8
+	ROL X9
+	ADC X8, ZERO
+
+	////////////////////////////
+	// REAL	   : 0 1 2 3 4 5 6 7 
+	// REGISTER: 4 5 6 7 1 0 8 9
+	MOVW X2, X6
+
+	LSL X6
+	ROL X7
+	ADC X6, ZERO
+
+	EOR X4, C0	
+	ANDI R30, 32
+
+	LPM C1, Z+
+	EOR X6, C1
+
+	LPM C1, Z+
+	EOR X7, C1
+
+	ADD X4, X6
+	ADC X5, X7
+
+	////////////////////////////
+	// REAL	   : 0 1 2 3 4 5 6 7 
+	// REGISTER: 2 3 1 0 8 9 5 4
+	EOR X0, C0	
+	ANDI R30, 32
+
+	LPM C1, Z+
+	EOR X0, C1
+
+	LPM C1, Z+
+	EOR X1, C1
+
+	ADD X2, X0
+	ADC X3, X1
+
+	LSL X2
+	ROL X3
+	ADC X2, ZERO
+
+	MOVW X2, X4
+	MOVW X4, X6
+	MOV X7, X0
+	MOV X6, X1
+		
+	MOVW X0, R26
+	//
+	//INC C0
+	ADIW C0, 4
+
+	CPI C0, 80
+	BRLT STEP1	
+
+	POP R27
+	POP R26
+	POP ZERO
+	
+	ST -X, X7
+	ST -X, X6
+	ST -X, X5
+	ST -X, X4
+	ST -X, X3
+	ST -X, X2
+	ST -X, X1
+	ST -X, X0
+	
+	CLR R1
+	*/
+	
+	MOVW R26, R24	//plain 
+	
+	LD X0, X+
+	LD X1, X+
+	LD X2, X+
+	LD X3, X+
+	LD X4, X+
+	LD X5, X+
+	LD X6, X+
+	LD X7, X+
+	
+	PUSH R2
+	PUSH R26
+	PUSH R27
+	
+	CLR C0
+	CLR ZERO
+	LDI R31, 0X08
+	CLR R30
+	STEP1:
+	MOVW X8, X2
+
+	LSL X2
+	ROL X3
+	ADC X2, ZERO
+
+	EOR X0, C0	
+	ANDI R30, 32
+
+	LPM C1, Z+
+	EOR X2, C1
+
+	LPM C1, Z+
+	EOR X3, C1
+
+	ADD X0, X2
+	ADC X1, X3
+
+
+	
+	/*
+	MOVW X2, X4
+	MOVW X4, X6
+	MOV X7, X0
+	MOV X6, X1
+		
+	MOVW X0, X8			//SAVING
+	//////////////////////////	
+	MOVW X8, X2			//SAVING
+	*/
+	////////////////////////////
+	// REAL	   : 0 1 2 3 4 5 6 7 
+	// REGISTER: 8 9 4 5 6 7 1 0
+
+	EOR X8, C0	
+
+	ANDI R30, 32
+
+	LPM C1, Z+
+	EOR X5, C1		//REVERSE
+
+	LPM C1, Z+
+	EOR X4, C1		//REVERSE
+
+	ADD X8, X5		//REVERSE
+	ADC X9, X4
+
+	LSL X8
+	ROL X9
+	ADC X8, ZERO
+
+	MOVW X2, X6
+	MOVW X6, X8
+
+	MOVW X8, X0
+	MOVW X0, X4
+
+	MOV X4, X1
+	MOV X5, X0 
+	//
+	//INC C0
+	ADIW C0, 2
+
+	CPI C0, 80
+	BRLT STEP1	
+
+	POP R27
+	POP R26
+	POP R2
+	
+	ST -X, X7
+	ST -X, X6
+	ST -X, X5
+	ST -X, X4
+	ST -X, X3
+	ST -X, X2
+	ST -X, X1
+	ST -X, X0
+	
+	CLR R1
+	/**/
+	
+
+
+
+	
+	/*
+	MOVW R26, R24	//plain 
+	
+	LD X0, X+
+	LD X1, X+
+	LD X2, X+
+	LD X3, X+
+	LD X4, X+
+	LD X5, X+
+	LD X6, X+
+	LD X7, X+
+
+
+	PUSH R26
+	PUSH R27
+
+	CLR C0
+	CLR T2
+
+	STEP1:
+	//even (0) ROL1 / odd (1) ROL8
+	MOV C1, C0
+	ANDI C1, 1
+	DEC C1
+	COM C1
+	ANDI C1, 7	
+	
+	MOVW R26, X2
+
+	STEP2:
+	LSL X2
+	ROL X3
+	ADC X2, T2
+	DEC C1
+	CPI C1, 0
+	BRGE STEP2
+
+	EOR X0, C0	
+	LDI R31, 0X08
+
+	MOV C1, C0
+	ANDI C1, 15
+	LSL C1
+	MOV R30, C1
+
+	LPM C1, Z+
+	EOR X2, C1
+
+	LPM C1, Z+
+	EOR X3, C1
+
+	ADD X0, X2
+	ADC X1, X3
+	
+	//even ROL 8 / odd ROL 1
+	MOV C1, C0
+	ANDI C1, 1
+	DEC C1
+	ANDI C1, 7
+	CLR T2
+	STEP3:
+	LSL X0
+	ROL X1
+	ADC X0, T2
+	DEC C1
+	CPI C1, 0
+	BRGE STEP3
+
+	MOVW X2, X4
+	MOVW X4, X6
+	MOVW X6, X0
+	MOVW X0, R26
+	
+	INC C0
+	CPI C0, 80
+	BRLT STEP1
+
+	POP R27
+	POP R26
+	
+	ST -X, X7
+	ST -X, X6
+	ST -X, X5
+	ST -X, X4
+	ST -X, X3
+	ST -X, X2
+	ST -X, X1
+	ST -X, X0
+	
+	CLR R1
+	/**/
+	RET
+
+
+
+//LUT_1: 
+//.word	0x0301,0x0705,0x0b09,0x0f0d,0x1311,0x1715,0x1b19,0x1f1d,0x151e,0x0308,0x3932,0x2f24,0x4d46,0x5b50,0x616a,0x777c
